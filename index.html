@@ -1,124 +1,1427 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0063)http://www.17sucai.com/preview/23564/2014-05-15/2048/index.html -->
-<html lang="en">
+<!-- saved from url=(0037)http://www.comp.nus.edu.sg/~a0068965/ -->
+<!DOCTYPE html>
+
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Jingyang Shi's Homepage</title>
+	<link rel="shortcut icon" href="nju.png">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <meta charset="utf-8">
-    <title>2048</title>
-    <meta name="viewport"
-        content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="./data/style.css">
+	<style>
+		/* Style the tab */
+		div.tab {
+			overflow: hidden;
+			border: none;
+			background-color: #f1f1f1;
+		}
+
+		/* Style the buttons inside the tab */
+		div.tab button {
+			background-color: inherit;
+			float: left;
+			border: none;
+			outline: none;
+			cursor: pointer;
+			padding: 14px 16px;
+			transition: 0.3s;
+			font-size: 120%;
+			font-family: Cambria, Microsoft YaHei, sans-serif;
+			tab-interval: .5in";
+
+		}
+
+		/* Change background color of buttons on hover */
+		div.tab button:hover {
+			background-color: #ddd;
+		}
+
+		/* Create an active/current tablink class */
+		div.tab button.active {
+			background-color: #ccc;
+		}
+
+		/* Style the tab content */
+		.tabcontent {
+			display: none;
+			padding: 6px 12px;
+			border: none;
+			border-top: 2px solid #ccc;
+		}
+
+		.newcontent {
+			height: 150px;
+			overflow-y: scroll;
+			display: block;
+			text-align: left;
+			border: none;
+			margin: 10px 0 10px 0;
+		}
+
+		.oldcontent {
+			height: 150px;
+			overflow-y: scroll;
+			display: none;
+			text-align: left;
+			border: none;
+			margin: 10px 0 10px 0;
+		}
+
+
+		div.scroll {
+			height: 200px;
+			overflow-y: scroll;
+			font-size: 108%;
+			margin: 10px 0 10px 0;
+			scroll-margin-top: 0;
+		}
+
+		.columnBlockTitle {
+			font-size: 120%;
+			font-weight: bold;
+		}
+
+		h1 {
+			font-size: 220%
+		}
+
+		h2 {
+			font-size: 180%
+		}
+
+		h7 {
+			font-size: 140%
+		}
+
+		h3 {
+			font-size: 120%
+		}
+
+		p {
+			font-size: 108%
+		}
+	</style>
+
 </head>
 
-<body>
-    <div class="container">
-        <div class="heading">
-            <h1 class="title">2048</h1>
-            <div class="scores-container">
-                <div class="score-container">104<div class="score-addition">+24</div>
-                </div>
-                <div class="best-container">1420</div>
-            </div>
-        </div>
-        <div class="above-game">
-            <a class="restart-button">New Game</a>
-        </div>
-        <div class="game-container">
-            <div class="game-message">
-                <p>
-                </p>
-                <div class="lower">
-                    <a class="keep-playing-button">Keep going</a>
-                    <a class="retry-button">Try again</a>
-                    <div class="score-sharing"></div>
-                </div>
-            </div>
-            <div class="grid-container">
-                <div class="grid-row">
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                </div>
-                <div class="grid-row">
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                </div>
-                <div class="grid-row">
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                </div>
-                <div class="grid-row">
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                    <div class="grid-cell">
-                    </div>
-                </div>
-            </div>
-            <div class="tile-container">
-                <div class="tile tile-2 tile-position-1-1">
-                    <div class="tile-inner">2</div>
-                </div>
-                <div class="tile tile-8 tile-position-1-2">
-                    <div class="tile-inner">6</div>
-                </div>
-                <div class="tile tile-8 tile-position-1-2">
-                    <div class="tile-inner">6</div>
-                </div>
-                <div class="tile tile-16 tile-position-1-2 tile-merged">
-                    <div class="tile-inner">8</div>
-                </div>
-                <div class="tile tile-16 tile-position-1-3">
-                    <div class="tile-inner">8</div>
-                </div>
-                <div class="tile tile-2 tile-position-1-4">
-                    <div class="tile-inner">2</div>
-                </div>
-                <div class="tile tile-4 tile-position-2-1">
-                    <div class="tile-inner">4</div>
-                </div>
-                <div class="tile tile-4 tile-position-2-1">
-                    <div class="tile-inner">4</div>
-                </div>
-                <div class="tile tile-8 tile-position-2-1 tile-merged">
-                    <div class="tile-inner">6</div>
-                </div>
-                <div class="tile tile-2 tile-position-3-1">
-                    <div class="tile-inner">2</div>
-                </div>
-                <div class="tile tile-2 tile-position-3-3 tile-new">
-                    <div class="tile-inner">2</div>
-                </div>
-            </div>
-        </div>
+<STYLE>
+	A {
+		text-decoration: none;
+	}
+</STYLE>
 
-        <p>（↑↓←→） 键盘上下左右按键，开始游戏</p>
-        <script src="./data/bind_polyfill.js"></script>
+<body style="font-family:Cambria,KaiTi,sans-serif;tab-interval: .5in" bgcolor=#FFFFFF lang="EN-US" link="Teal"
+	vlink="purple" alink="green">
 
-    </div>
+	<div class="Section1">
+		<div align="center">
+			<table class="MsoNormalTable" border="0" cellpadding="0" width="75%" bgcolor="white"
+				style="width: 75.16%; mso-cellspacing: 1.5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt">
+				<tbody>
+					<tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; mso-yfti-lastrow: yes">
+						<td width="99%" style="width: 99.3%; padding: .75pt .75pt .75pt .75pt">
+
+
+							<table class="MsoNormalTable" border="0" cellpadding="0" width="100%"
+								style="width: 100.0%; mso-cellspacing: 1.5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt">
+								<tbody>
+									<tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; mso-yfti-lastrow: yes">
+										<td width="52%" style="width: 52.54%; padding: .75pt .75pt .75pt .75pt">
+											<h2>
+												Jingyang <u>Shi</u> &nbsp; (施景阳)
+											</h2>
+
+											<p class="MsoNormal">
+												Master Student <br>
+												<!--<a href="http://seg.nju.edu.cn/index.action">Software Engineering Group</a> <br> -->
+												<a href="http://cs.nju.edu.cn/">School of Computer Science and
+													Technology</a>
+												<br>
+												<a href="https://www.nju.edu.cn/">Nanjing University, China</a><br>
+											</p>
+											<p class="MsoNormal">
+												<img src="office.png" height="18" width="20"
+													style="vertical-align:bottom"> 533 Computer Science Building<br>
+												<img src="email.jpg" height="18" width="20"
+													style="vertical-align:bottom"> jyshi AT smail.nju.edu.cn<br>
+												<img src="address.png" height="18" width="20"
+													style="vertical-align:bottom"> 163 Xianlin Road, Qixia District,
+												Nanjing, China
+											</p>
+										</td>
+										<td width="20%" style="width: 22.74%; padding: .75pt .75pt .75pt .75pt">
+											<p class="MsoNormal">
+												<span style="mso-no-proof: yes"></span>
+											</p>
+											<!--<img alt="NJU" border="0" height="200" src="tagcloud-compressed.png"
+													width="255">-->
+											<div style="display: inline; margin: 5px 10px; float: center">
+
+											</div>
+										</td>
+										<!--	<td width="20%"
+											style="width: 20.74%; padding: .75pt .75pt .75pt .75pt">
+											<p class="MsoNormal">
+												<span style="mso-no-proof: yes"></span>
+											</p>
+											<img alt="NJU" border="0" height="185" src="nju.jpeg"
+													width="200">
+											<div style="display: inline; margin: 5px 10px; float: center">
+												
+											</div>
+										</td>
+										-->
+										<td width="25%" style="width: 27.74%; padding: .75pt .75pt .75pt .75pt">
+											<p class="MsoNormal">
+												<span style="mso-no-proof: yes"></span>
+											</p>
+											<img alt="Jingyang Shi" border="0" height="220" src="sjy.jpg" width="165">
+											<div style="display: inline; margin: 5px 10px; float: center">
+
+											</div>
+										</td>
+
+									</tr>
+								</tbody>
+							</table> <span style="display: block; height: 3pt;"></span>
+
+							<!--==================================== Tabs ====================================-->
+							<div class="tab">
+								<button class="tablinks" onclick="openCity(event, 'Home')"
+									id="defaultOpen">Home</button>
+								<button class="tablinks" onclick="openCity(event, 'Research')">Research</button>
+								<!-- <button class="tablinks" onclick="openCity(event, 'Publications')">Publications</button>
+								<button class="tablinks" onclick="openCity(event, 'Students')">Students</button>
+								<button class="tablinks" onclick="openCity(event, 'Services')">Services</button>
+								<button class="tablinks" onclick="openCity(event, 'Teaching')">Teaching</button>
+								<button class="tablinks" onclick="openCity(event, 'Calendar')">Calendar</button>
+								<button class="tablinks" onclick="openCity(event, 'Miscellaneous')">Miscellaneous</button> -->
+							</div>
+
+							<!--==================================== Home ====================================-->
+							<div id="Home" class="tabcontent">
+								<!------------------------ me ---------------------------->
+								<h3 style="color: darkblue">About Me</h3>
+								<p class="MsoNormal">
+									I am now a Master's student at Nanjing University.
+									Research interests include system software, compilers and runtime, program analysis,
+									etc.
+									<!--I was a postdoctoral scholar working with <a href="http://web.cs.ucla.edu/~harryxu/" style="text-decoration: none;">Dr. Harry Xu</a> at University of California. 
+								, under the supervision of <a href="https://www.comp.nus.edu.sg/~khoosc/" style="text-decoration: none;">Dr. Siau-Cheng Khoo</a>. -->
+									<!--	Here is my brief <a href="https://drive.google.com/file/d/1FtSX5MjQpKtkzDRCvZafUeKd7xfEwOtf/view?usp=sharing" style="text-decoration: underline">CV</a>. -->
+								</p>
+
+								<p><strong>
+										中文简介：施景阳。南京大学在读硕士。主要研究方向为系统软件、编译器与运行时、程序分析等。
+									</strong></p>
+
+								<!--
+								<p class="MsoNormal">
+								I am serving the PC or ERC for the following conferences. 
+								Please consider submitting your work to them. <br>
+								<span style="display: block; height: 10pt;"></span>
+								<a href="https://asplos-conference.org/">
+								<img src="asplos-22.png" height="24" border="0"  width="127" style="vertical-align:middle;margin:0px 40px">
+								</a>
+								<a href="https://pldi22.sigplan.org/">
+								<img src="pldi-22.png" height="24" border="0"  width="96" style="vertical-align:middle;margin:0px 40px">
+								</a>
+								<a href="https://2022.esec-fse.org/">
+								<img src="fse-22.png" height="24" border="0"  width="147" style="vertical-align:middle;margin:0px 40px">
+								</a>
+								</p>
+								-->
+								<!-- <p class="MsoNormal">
+I am serving the PC for the following conferences. Please consider submitting your work to them. 
+</p>
+<table>
+  <tr>
+    
+    <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+    <th><h7><a href="https://pldi25.sigplan.org/"><font color="black"><u>PLDI'25</u></font></a></h7></th>
+    <th>&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+    <th><h7><a href=""><font color="black"><u>ASPLOS'26</u></font></a></h7></th>
+  
+  </tr>
+</table> -->
+
+
+								<!------------------------ interests ---------------------------->
+								<span style="display: block; height: 0pt;"></span>
+								<h3 style="color: darkblue">Research Interests</h3>
+
+
+								<p class="MsoNormal"></p>
+								<ul type="disc">
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l2 level1 lfo3; tab-stops: list .5in">
+										System software</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt:auto;mso-margin-bottom-alt: auto;mso-list:l2 level1 lfo3;tab-stops:list .5in">
+										Compiler and runtime</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l2 level1 lfo3; tab-stops: list .5in">
+										Program analysis</li>
+								</ul>
+
+
+								<p class="MsoNormal">
+									My research interests span Programming Languages, Software Engineering, and Systems.
+
+									<!-- 
+								I am recently focusing on building Big Data supports for scalable program analysis, synthesis and SAT solving. 
+								Moreover, I'm also interested in data mining and machine learning techniques, especially their applications on programming languages and software engineering.
+								-->
+								</p>
+
+								<!---------------------- news ---------------------------->
+								<!-- 被删了 -->
+							</div>
+
+							<!--==================================== Publications ====================================-->
+							<div id="Publications" class="tabcontent">
+								<h3 style="color: darkblue">Publications</h3>
+
+
+								&dagger; Research papers <font color="#ff0000"><strong>over 10 pages at top tier
+										venues</strong></font> are marked as red. The underlined authors are students
+								that I advised. <sup>*</sup> indicates (co-)corresponding author. <sup>#</sup> indicates
+								equal contribution.
+
+								<ul type="disc">
+
+									<h4 style="color: darkblue">Preprint</h4>
+
+									<li style="margin-bottom: 10px;"><strong>Scaling Inter-procedural Dataflow Analysis
+											on the Cloud</strong>
+										<br> by <u>Zewen Sun<sup>#</sup></u>, <u>Yujin Zhang<sup>#</sup></u>,
+										<u>Duanchen Xu</u>, <u>Yiyu Zhang</u>, <u>Yun Qi</u>, <u>Yueyang Wang</u>, <u>Yi
+											Li</u>, Zhaokang Wang, Yue Li, Xuandong Li, <strong>Zhiqiang Zuo</strong>*,
+										Qingda Lu, Wenwen Peng, and Shengjian Guo.
+										<a href="https://arxiv.org/abs/2412.12579">arXiv</a>.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>HardRace: A Dynamic Data Race Monitor for
+											Production Use</strong>
+										<br> by <u>Xudong Sun</u>, <u>Zhuo Chen</u>, <u>Jingyang Shi</u>, <u>Yiyu
+											Zhang</u>, Peng Di, Jianhua Zhao, Xuandong Li, and <strong>Zhiqiang
+											Zuo</strong>*.
+										<a href="https://arxiv.org/abs/2410.18412">arXiv</a>.
+										<br>
+									</li>
+
+
+									<h4 style="color: darkblue">2024</h4>
+
+									<li style="margin-bottom: 10px;"><strong>HardTaint: Production-Run Dynamic Taint
+											Analysis via Selective Hardware Tracing</strong>
+										<br> by <u>Yiyu Zhang</u>, <u>Tiany&#237; Liu</u>, <u>Yueyang Wang</u>, <u>Yun
+											Qi</u>, <u>Kai Ji</u>, Jian Tang, Xiaoliang Wang, Xuandong Li, and
+										<strong>Zhiqiang Zuo</strong>*.
+										<br> accepted by <i>the ACM SIGPLAN Conference on Object-Oriented Programming,
+											Systems, Languages, and Applications</i>,
+										<a href="https://2024.splashcon.org/track/splash-2024-oopsla">(<font
+												color="#ff0000"><strong>OOPSLA'24</strong></font>)</a>, 2024.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>编译技术与编译器设计专刊(In Chinese)</strong>
+										<br> by Xiaobing Feng, Dan Hao, Yaoqing Gao, and <strong>Zhiqiang Zuo</strong>*.
+										<br> Special Issue in <i>Journal of Software</i>, <a
+											href="https://www.jos.org.cn/jos/news/view/20240105115126001">(软件学报)</a>,
+										2024. <br>
+									</li>
+
+
+									<h4 style="color: darkblue">2023</h4>
+
+									<li style="margin-bottom: 10px;"><strong>Physical Devices-Agnostic Hybrid Fuzzing of
+											IoT Firmware</strong>
+										<br> by Lingyun Situ, Chi Zhang, Le Guan, <strong>Zhiqiang Zuo</strong>,
+										Linzhang Wang, Xuandong Li, Peng Liu, and Jin Shi.
+										<br> In <i>the IEEE Internet of Things Journal</i>,
+										<a href="https://ieee-iotj.org/">(IoT-J'23)</a>, 2023.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>BigDataflow: A Distributed Interprocedural
+											Dataflow Analysis Framework</strong>
+										<br> by <u>Zewen Sun</u>, <u>Duanchen Xu</u>, <u>Yiyu Zhang</u>, <u>Yun Qi</u>,
+										<u>Yueyang Wang</u>, <strong>Zhiqiang Zuo</strong>*, Zhaokang Wang, Yue Li,
+										Xuandong Li, Qingda Lu, Wenwen Peng, and Shengjian Guo.
+										<br> In <i>Proceedings of the ACM Joint European Software Engineering Conference
+											and Symposium on the Foundations of Software Engineering</i>,
+										<a href="https://2023.esec-fse.org/">(<font color="#ff0000">
+												<strong>FSE'23</strong>
+											</font>)</a>, 2023.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Catamaran: Low-Overhead Memory Safety
+											Enforcement via Parallel Acceleration</strong>
+										<br> by <u>Yiyu Zhang</u>, <u>Tiany&#236; Liu</u>, <u>Zewen Sun</u>, Zhe Chen,
+										Xuandong Li, and <strong>Zhiqiang Zuo</strong>*.
+										<br> In <i>Proceedings of the ACM SIGSOFT International Symposium on Software
+											Testing and Analysis</i>,
+										<a href="https://conf.researchr.org/home/issta-2023">(<font color="#ff0000">
+												<strong>ISSTA'23</strong>
+											</font>)</a>, 2023.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Toward More Efficient Statistical Debugging
+											with Abstraction Refinement</strong>
+										<br> by <strong>Zhiqiang Zuo</strong>*, Xintao Niu*, Siyi Zhang, Lu Fang, Siau
+										Cheng Khoo, Shan Lu, Chengnian Sun, and Guoqing Harry Xu.
+										<br> In <i>ACM Transactions on Software Engineering and Methodology</i>,
+										<a href="https://dl.acm.org/doi/10.1145/3544790">(<font color="#ff0000">
+												<strong>TOSEM'23</strong>
+											</font>)</a>, Vol. 32, Iss. 2, No. 36, March
+										2023.
+										<br>(This is an extended journal version of our ISSTA'14 and OOPSLA'16 papers
+										under a unified and systematic formulation.)
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>基于多线程并行的符号执行引擎设计与实现(In Chinese)</strong>
+										<br> by <u>Peng Zhou</u>, and <strong>Zhiqiang Zuo</strong>*.
+										<br> In <i>Journal of Computer Research and Development</i>, <a
+											href="https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.202220920">(计算机研究与发展)</a>,
+										60(2): 248-261, 2023. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>DStream: A Streaming-Based Highly Parallel
+											IFDS Framework</strong>
+										<br> by <u>Xizao Wang</u>, <strong>Zhiqiang Zuo</strong>*, Lei Bu*, and Jianhua
+										Zhao.
+										<br> In <i>Proceedings of the IEEE/ACM International Conference on Software
+											Engineering</i>,
+										<a href="https://conf.researchr.org/home/icse-2023">(<font color="#ff0000">
+												<strong>ICSE'23</strong>
+											</font>)</a>, 2023.
+										<br>
+									</li>
+
+									<h4 style="color: darkblue">2022</h4>
+
+									<li style="margin-bottom: 10px;"><strong>UPGRADVISOR: Early Adopting Dependency
+											Updates Using Hybrid Program Analysis and Hardware Tracing</strong>
+										<br> by Yaniv David, <u>Xudong Sun</u>, Aditya Senthilnathan, Raphael Jedidiah
+										Sofaer, Junfeng Yang*, <strong>Zhiqiang Zuo</strong>*, Guoqing Harry Xu, Jason
+										Nieh, and Ronghui Gu.
+										<br> In <i>Proceedings of USENIX Symposium on Operating System Design and
+											Implementation</i>,
+										<a href="https://www.usenix.org/conference/osdi22">(<font color="#ff0000">
+												<strong>OSDI'22</strong>
+											</font>)</a>,
+										Carlsbad, CA, USA, July 11-13, 2022. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>基于核外计算的Datalog引擎设计与实现(In Chinese)</strong>
+										<br> by <u>Yiyu Zhang</u>, <u>Guihang Wang</u>, <strong>Zhiqiang Zuo</strong>*,
+										and Xuandong Li.
+										<br> In <i>Journal of Software</i>, <a
+											href="http://jos.org.cn/jos/article/abstract/6552?bsh_bid=5671493350">(软件学报)</a>,
+										Online, January 2022. <br>
+									</li>
+
+
+									<h4 style="color: darkblue">2021</h4>
+
+									<li style="margin-bottom: 10px;"><strong>Systemizing Interprocedural Static Analysis
+											of Large-Scale Systems Code with Graspan</strong>
+										<br> by <strong>Zhiqiang Zuo</strong>*, Kai Wang, Aftab Hussain, Ardalan Amiri
+										Sani, <u>Yiyu Zhang</u>, <u>Shenming Lu</u>, Wensheng Dou, Linzhang Wang,
+										Xuandong Li, Chenxi Wang, and Guoqing Harry Xu.
+										<br> In <i>ACM Transactions on Computer Systems</i>,
+										<a href="https://dl.acm.org/journal/tocs">(<font color="#ff0000">
+												<strong>TOCS'21</strong>
+											</font>)</a>, Vol. 38, No. 4, July 2021.
+										<br>(This is an extended journal version of our ASPLOS'17 paper by adding a
+										GPU-accelerated analysis backend.)
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Vulnerable Region-Aware Greybox
+											Fuzzing</strong>
+										<br> by Lingyun Situ, <strong>Zhiqiang Zuo</strong>*, Le Guan, Linzhang Wang*,
+										Xuandong Li, Jin Shi, and Peng Liu.
+										<br> In <i>the Journal of Computer Science and Technology</i>,
+										<a href="http://jcst.ict.ac.cn/EN/1000-9000/home.shtml">(JCST'21)</a>, Vol. 36,
+										No. 5, 2021. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Identifying Privacy Weaknesses from
+											Multi-Party Trigger-Action Integration Platforms</strong>
+										<br> by Kulani Tharaka Mahadewa, Yanjun Zhang, Guangdong Bai*, Lei Bu,
+										<strong>Zhiqiang Zuo</strong>, Dileepa Fernando, Zhenkai Liang, and Jin Song
+										Dong.
+										<br> In <i>Proceedings of the ACM SIGSOFT International Symposium on Software
+											Testing and Analysis</i>,
+										<a href="https://conf.researchr.org/home/issta-2021">(<font color="#ff0000">
+												<strong>ISSTA'21</strong>
+											</font>)</a>,
+										Virtual, July 11-17, 2021. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>JPortal: Precise and Efficient Control-Flow
+											Tracing for JVM Programs with Intel Processor Trace</strong>
+										<br> by <strong>Zhiqiang Zuo</strong>, <u>Kai Ji</u>, <u>Yifei Wang</u>, <u>Wei
+											Tao</u>, Linzhang Wang, Xuandong Li, and Guoqing Harry Xu.
+										<br> In <i>Proceedings of the 42nd ACM SIGPLAN Conference on Programming
+											Language Design and Implementation</i>,
+										<a href="https://conf.researchr.org/home/pldi-2021">(<font color="#ff0000">
+												<strong>PLDI'21</strong>
+											</font>)</a>,
+										Virtual, June 20-25, 2021. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Chianina: An Evolving Graph System for
+											Flow- and Context-Sensitive Analyses of Million Lines of C Code</strong>
+										<br> by <strong>Zhiqiang Zuo</strong>, <u>Yiyu Zhang</u>, <u>Qiuhong Pan</u>,
+										<u>Shenming Lu</u>, Yue Li, Linzhang Wang, Xuandong Li, and Guoqing Harry Xu.
+										<br> In <i>Proceedings of the 42nd ACM SIGPLAN Conference on Programming
+											Language Design and Implementation</i>,
+										<a href="https://conf.researchr.org/home/pldi-2021">(<font color="#ff0000">
+												<strong>PLDI'21</strong>
+											</font>)</a>,
+										Virtual, June 20-25, 2021. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Towards Efficient Large-Scale
+											Interprocedural Program Static Analysis on Distributed Data-Parallel
+											Computation</strong>
+										<br> by Rong Gu, <strong>Zhiqiang Zuo</strong>*, Xi Jiang, Han Yin, Zhaokang
+										Wang, Linzhang Wang, Xuandong Li, and Yihua Huang*.
+										<br> In <i>IEEE Transactions on Parallel and Distributed Systems</i>,
+										<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=71">(<font
+												color="#ff0000"><strong>TPDS'21</strong></font>)</a>, Vol. 32, No. 4,
+										April 2021.
+										<br>(This is an extended journal version of our IPDPS'19 paper by adding the
+										support for online incremental analysis.)
+									</li>
+
+									<h4 style="color: darkblue">2020</h4>
+									<li style="margin-bottom: 10px;"><strong>Incremental Network Configuration
+											Verification</strong>
+										<br> by Peng Zhang, Yuhao Huang, Aaron Gember-Jacobson, Wenbo Shi, Xu Liu,
+										Hongkun Yang, and <strong>Zhiqiang Zuo</strong>.
+										<br> In <i>Proceedings of the 19th ACM Workshop on Hot Topics in Networks</i>,
+										<a
+											href="http://conferences.sigcomm.org/hotnets/2020/index.html">(HotNets'20)</a>,
+										Chicago, Illinois, USA, November 5-6, 2020. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Exposing Cache Timing Side-Channel Leaks
+											through Out-of-Order Symbolic Execution</strong>
+										<br> by Shengjian Guo, Yueqi Chen, Jiyong Yu, Meng Wu, <strong>Zhiqiang
+											Zuo</strong>, Peng Li, Yueqiang Cheng and Huibo Wang.
+										<br> In <i>Proceedings of the ACM SIGPLAN Conference on Object-Oriented
+											Programming Systems, Languages, and Applications</i>,
+										<a href="https://2020.splashcon.org/track/splash-2020-oopsla">(<font
+												color="#ff0000"><strong>OOPSLA'20</strong></font>)</a>,
+										Illinois, United States, November 15-20, 2020. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>SpecuSym: Speculative Symbolic Execution
+											for Cache Timing Leak Detection</strong>
+										<br> by Shengjian Guo, Yueqi Chen, Peng Li, Yueqiang Cheng, Huibo Wang, Meng Wu
+										and <strong>Zhiqiang Zuo</strong>.
+										<br> In <i>Proceedings of the 42nd International Conference on Software
+											Engineering</i>, <a href="https://conf.researchr.org/home/icse-2020">(<font
+												color="#ff0000"><strong>ICSE'20</strong></font>)</a>,
+										Seoul, South Korea, May 23-29, 2020. <br>
+									</li>
+									<li style="margin-bottom: 10px;"><strong>静态程序分析并行化研究进展(In Chinese)</strong>
+										<br> by <u>Shenming Lu</u>, <strong>Zhiqiang Zuo</strong>*, and Linzhang Wang*.
+										<br> In <i>Journal of Software</i>, <a href="http://www.jos.org.cn">(软件学报)</a>,
+										Vol. 31, No. 5, May 2020. <br>
+									</li>
+
+									<h4 style="color: darkblue">2019</h4>
+									<li style="margin-bottom: 10px;"><strong>Automatic Self-Validation for Code Coverage
+											Profilers</strong>
+										<br> by Yibiao Yang, Yanyan Jiang, <strong>Zhiqiang Zuo</strong>, Yang Wang, Hao
+										Sun, Hongmin Lu, Yuming Zhou*, and Baowen Xu*.
+										<br> In <i>Proceedings of the 34th IEEE/ACM International Conference on
+											Automated Software Engineering</i>, <a
+											href="https://2019.ase-conferences.org/">(<font color="#ff0000">
+												<strong>ASE'19</strong>
+											</font>)</a>,
+										San Diego, CA, USA, November 11-15, 2019. <br>
+									</li>
+									<li style="margin-bottom: 10px;"><strong>BigSpa: An Efficient Interprocedural Static
+											Analysis Engine in the Cloud</strong>
+										<br> by <strong>Zhiqiang Zuo</strong>, Rong Gu, Xi Jiang, Zhaokang Wang, Yihua
+										Huang, Linzhang Wang, and Xuandong Li.
+										<br> In <i>Proceedings of the 33rd IEEE International Parallel & Distributed
+											Processing Symposium</i>, <a
+											href="http://www.ipdps.org/ipdps2019/2019-call-for-papers.html">(IPDPS'19)</a>,
+										Rio de Janeiro, Brazil, May 20-24, 2019. <br>
+									</li>
+									<li style="margin-bottom: 10px;"><strong>Grapple: A Graph System for Static
+											Finite-State Property Checking of Large-Scale Systems Code</strong>
+										<br> by <strong>Zhiqiang Zuo</strong>, John Thorpe, <u>Yifei Wang</u>,
+										<u>Qiuhong Pan</u>, <u>Shenming Lu</u>, Kai Wang, Harry Xu, Linzhang Wang, and
+										Xuandong Li.
+										<br> In <i>Proceedings of the European Conference on Computer Systems</i>, <a
+											href="https://www.eurosys2019.org/">(<font color="#ff0000">
+												<strong>EuroSys'19</strong>
+											</font>)</a>,
+										Dresden, Germany, March 25-28, 2019. <br>
+									</li>
+									<li style="margin-bottom: 10px;"><strong>C程序内存泄漏智能化检测方法(In Chinese)</strong>
+										<br> by Yawei Zhu, <strong>Zhiqiang Zuo</strong>, Linzhang Wang*, and Xuandong
+										Li.
+										<br> In <i>Journal of Software</i>, <a href="http://www.jos.org.cn">(软件学报)</a>,
+										Vol. 30, No. 5, May 2019. <br>
+									</li>
+									<li style="margin-bottom: 10px;"><strong>Hunting for Bugs in Code Coverage Tools via
+											Randomized Differential Testing</strong>
+										<br> by Yibiao Yang, Yuming Zhou*, Hao Sun, Zhendong Su, <strong>Zhiqiang
+											Zuo</strong>, Lei Xu, and Baowen Xu*.
+										<br> In <i>Proceedings of the 41st International Conference on Software
+											Engineering</i>, <a href="https://2019.icse-conferences.org/home">(<font
+												color="#ff0000"><strong>ICSE'19</strong></font>)</a>,
+										Montréal, QC, Canada, May 25–31, 2019. <br>
+									</li>
+
+									<h4 style="color: darkblue">2018</h4>
+									<li style="margin-bottom: 10px;"><strong>RStream: Marrying Relational Algebra with
+											Streaming for Efficient Graph Mining on A Single Machine</strong>
+										<br> by Kai Wang, <strong>Zhiqiang Zuo</strong>, John Thorpe, Tim Nguyen, and
+										Guoqing Xu.
+										<br> In <i>Proceedings of USENIX Symposium on Operating System Design and
+											Implementation</i>, <a href="https://www.usenix.org/conference/osdi18">(
+											<font color="#ff0000"><strong>OSDI'18</strong></font>)
+										</a>,
+										Carlsbad, CA, USA, October 8–10, 2018. <br>
+									</li>
+									<li style="margin-bottom: 10px;"><strong>Calling-to-Reference Context Translation
+											via Constraint-Guided CFL-Reachability</strong>
+										<br> by Cheng Cai, Qirun Zhang, <strong>Zhiqiang Zuo</strong>, Khanh Nguyen,
+										Harry Xu, and Zhendong Su.
+										<br> In <i>Proceedings of ACM SIGPLAN Conference on Programming
+											Language Design and Implementation</i>, <a
+											href="https://pldi18.sigplan.org/home">(<font color="#ff0000">
+												<strong>PLDI'18</strong>
+											</font>)</a>,
+										Philadelphia, PA, USA, June 18-22, 2018. <br>
+									</li>
+
+									<h4 style="color: darkblue">Before 2018</h4>
+									<li style="margin-bottom: 10px;"><strong>Graspan:
+											A Single-Machine Disk-Based Graph System for Interprocedural
+											Static Analyses of Large-Scale Systems Code</strong>
+										<br> by Kai Wang, Aftab Hussain, <strong>Zhiqiang Zuo</strong>, Guoqing (Harry)
+										Xu and Ardalan Amiri
+										Sani. <br> In <i>Proceedings of the 22nd ACM
+											International Conference on Architectural Support for
+											Programming Languages and Operating Systems</i>, <a
+											href="http://novel.ict.ac.cn/ASPLOS2017/index.html">(<font color="#ff0000">
+												<strong>ASPLOS'17</strong>
+											</font>)</a>,
+										Xi'an, China, April 8 - 12, 2017. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Low-Overhead
+											and Fully Automated Statistical Debugging with Abstraction
+											Refinement</strong>
+										<br> by <strong>Zhiqiang Zuo</strong>, Lu Fang, Siau-Cheng Khoo, Guoqing (Harry)
+										Xu and Shan Lu. <br> In
+										<i>Proceedings of the ACM SIGPLAN Conference on
+											Object-Oriented Programming Systems, Languages, and
+											Applications</i>, <a
+											href="http://2016.splashcon.org/track/splash-2016-oopsla">(<font
+												color="#ff0000"><strong>OOPSLA'16</strong></font>)</a>,
+										Amsterdam, The Netherlands, Oct. 30 - Nov. 4, 2016. <br>
+									</li>
+
+
+
+									<li style="margin-bottom: 10px;"><strong>Efficient
+											Predicated Bug Signature Mining via Hierarchical
+											Instrumentation</strong>
+										<br> by <strong>Zhiqiang Zuo</strong>, Siau-Cheng Khoo and
+										Chengnian Sun. <br> In <i>Proceedings of the 2014
+											International Symposium on Software Testing and Analysis</i>, <a
+											href="http://issta2014.org/index.html">(<font color="#ff0000">
+												<strong>ISSTA'14</strong>
+											</font>)</a>, San
+										Jose, CA, USA, July 21-25, 2014. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Efficient
+											Statistical Debugging via Hierarchical Instrumentation</strong>
+										<br> by <strong>Zhiqiang Zuo</strong>. <br> In <i>Proceedings
+											of the 2014 International Symposium on Software Testing and
+											Analysis</i>, <a href="http://issta2014.org/doctoral.html">(ISSTA'14
+											Doctoral Symposium)</a>, San Jose, CA, USA, July 21-25, 2014. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Mining
+											Dataflow Sensitive Specifications</strong>
+										<br> by <strong>Zhiqiang Zuo</strong> and Siau-Cheng Khoo. <br>
+										In <i>Proceedings of the 15th International Conference on
+											Formal Engineering Methods</i>, <a
+											href="http://www.cs.auckland.ac.nz/research/conferences/icfem2013/">(ICFEM'13)</a>,
+										Queenstown, New Zealand, Oct. 29 - Nov. 1, 2013. <br>
+									</li>
+								</ul>
+
+
+								<h3 style="color: darkblue">Reports</h3>
+								<ul type="disc">
+									<!--
+									<li style="margin-bottom: 10px;"><strong>"Systemized" Program Analyses – A "Big Data" Perspective on Scaling Large-Scale Code Analyses</strong> 
+										[<a href="">pdf</a>]
+										<br> 
+										by Guoqing (Harry) Xu, <strong>Zhiqiang Zuo</strong>, Kai Wang, Aftab Hussain, and Khanh Nguyen.
+										<br> 
+										<i>Technical report</i>, 
+										2017. <br></li>
+									-->
+
+									<li style="margin-bottom: 10px;"><strong>Refinement
+											Techniques in Mining Software Behavior</strong> [<a
+											href="https://drive.google.com/file/d/0B58Jj9Us3ouQTjFScnNqSmloSjg/view?usp=sharing">pdf</a>]
+										<br> by <strong>Zhiqiang Zuo</strong>. <br> <i>Dissertation</i>,
+										February 2015. <br>
+									</li>
+
+									<!--
+										<li style="margin-bottom: 10px;"><strong>Iterative
+											Statistical Bug Isolation via Hierarchical Instrumentation</strong> [<a
+										href="https://drive.google.com/file/d/0B58Jj9Us3ouQOEJ0Z0hGSGpFYVU/edit?usp=sharing">pdf</a>]
+										<br> by <strong>Zhiqiang Zuo</strong> and Siau-Cheng Khoo. <br>
+										In <i>DSpace at School of Computing, NUS</i>, <a
+										href="https://dl.comp.nus.edu.sg/jspui/handle/1900.100/4666">(TRC7-14)</a>.
+										<br></li>
+									-->
+
+								</ul>
+
+								<!--
+								<h3 style="color: darkblue">Tutorials</h3>
+								<ul type="disc">
+									<li style="margin-bottom: 10px;"><strong>"Systemized"
+											Program Analyses – A "Big Data" Perspective on Static
+											Analysis Scalability</strong> [<a
+										href="http://web.cs.ucla.edu/~harryxu/asplos-tutorial/main.html">link</a>]
+										<br> by Guoqing (Harry) Xu and <strong>Zhiqiang Zuo</strong>.<br> 
+										<i>At the 22nd ACM International Conference on
+											Architectural Support for Programming Languages and Operating
+											Systems</i>, <a
+										href="http://novel.ict.ac.cn/ASPLOS2017/index.html">(ASPLOS'17)</a>,
+										Xi'an, China, April 8 - 12, 2017. <br></li>
+								</ul>
+								-->
+
+
+								<!--
+								<h3 style="color: darkblue">Conference Talks</h3>
+								<ul type="disc">
+										<li style="margin-bottom: 10px;"><strong>Grapple: A Graph System for Static Finite-State Property Checking of Large-Scale Systems Code </strong> <br>
+										At <i>the European Conference on Computer Systems</i>, (EuroSys'19), 
+										Dresden, Germany, March 25-28, 2019. <br></li>
+										
+										<li style="margin-bottom: 10px;"><strong>Low-Overhead and Fully Automated Statistical Debugging with Abstraction Refinement </strong> <br>
+										At <i>the ACM SIGPLAN Conference on Object-Oriented Programming Systems, Languages, and Applications</i>, (OOPSLA’16), 
+										Amsterdam, The Netherlands, Oct. 30 - Nov. 4, 2016. <br></li>
+										
+										<li style="margin-bottom: 10px;"><strong>Efficient Predicated Bug Signature Mining via Hierarchical Instrumentation </strong> <br>
+										At <i>the 2014 International Symposium on Software Testing and Analysis</i>, (ISSTA’14),
+										San Jose, CA, USA, July 21-25, 2014. <br></li>
+										
+										<li style="margin-bottom: 10px;"><strong>Statistical Debugging via Hierarchical Instrumentation </strong> <br>
+										At <i>the 2014 International Symposium on Software Testing and Analysis</i>, (ISSTA’14 Doctoral Symposium),
+										San Jose, CA, USA, July 21-25, 2014. <br></li>		
+										
+										<li style="margin-bottom: 10px;"><strong>Mining Dataflow Sensitive Specifications </strong> <br>
+										At <i>the 15th International Conference on Formal Engineering Methods</i>, (ICFEM’13),
+										Queenstown, New Zealand, Oct. 29 - Nov. 1, 2013. <br></li>													
+								</ul>
+								-->
+							</div>
+
+
+							<!--==================================== Research ====================================-->
+							<div id="Research" class="tabcontent">
+								<h3 style="color: darkblue">Grants &amp; Awards</h3>
+								<ul type="disc">
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, HONOR Innovation Research Project, 2024.9-2025.11, (安卓运行时编译优化)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, NJU-Huawei Innovation Lab, 2023.7-2024.7, (数据库场景的编译优化)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, Alipay Innovation Research Project, 2023.1-2023.12, (基于硬件的JVM程序方法调用序列动态追踪)
+									</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, National Natural Science Foundation of China [General Program],
+										2023.1-2026.12, (软硬件协同的程序动态执行信息跟踪技术研究)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										ZiJin Scholar of Nanjing University (南京大学"紫金学者"), 2022</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, CCF-Huawei Innovation Research Award on Systems Software, 2021.11-2022.10,
+										(GPU程序反馈式编译优化研究)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, NJU-Huawei Joint Innovation Lab, 2021.5-2022.5, (低时间开销的安全C语言增强集设计与实现)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, Alibaba Innovation Research (AIR) Award, 2021.1-2021.12,
+										(分布式系统的软件错误的相关理论和检测分析工具)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										Co-PI, National Natural Science Foundation of China [Key Program],
+										2021.1-2025.12, (基于模糊测试的物联网设备固件漏洞检测技术研究)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, NJU-Huawei Joint Innovation Lab, 2020.6-2021.5, (程序Cache行为静态分析)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, NJU-Huawei Joint Innovation Lab, 2020.4-2021.3, (安全C/C++语言增强集设计与实现)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										Co-PI, National Natural Science Foundation of China [Key Program],
+										2020.1-2024.12, (自成长复杂软件系统构建方法与运行支撑研究)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, Natural Science Foundation of Jiangsu Province [General Program],
+										2019.7-2022.6, (基于GPU加速和核外计算的程序分析技术研究)</li>
+
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										PI, National Natural Science Foundation of China [Young Scientists Program],
+										2019.1-2021.12, (基于大规模数据处理的程序分析技术研究)</li>
+
+								</ul>
+
+								<!--
+								<h3 style="color: darkblue">Projects</h3>
+								<ul>
+								
+									<li><b>Customized Compiler and Runtime Design for Emerging Infrastructures and Applications</b>
+										<ul>
+											<li onclick="myOldFunction('')">Abstract: <u>click</u></li>
+											<div id="" class="oldcontent">
+											</div>
+											<li>Paper: accepted to <a href="">PLDI'21-JPortal</a>, 
+												<a href="">OSDI'22</a>.
+											</li>
+										</ul></li>
+									<br>
+									
+									<li><b>Systemized Static Program Analysis of Large-Scale Systems Code</b>
+										<ul>
+											<li onclick="myOldFunction('')">Abstract: <u>click</u></li>
+											<div id="" class="oldcontent">
+											</div>
+											<li>Paper: accepted to <a href="">ASPLOS'17</a>, 
+												<a href="">OSDI'18</a>,
+												<a href="">EuroSys'19</a>,
+												<a href="">IPDPS'19</a>,
+												<a href="">TPDS'21</a>,
+												<a href="">PLDI'21-Chianina</a>,
+												<a href="">TOCS'21</a>,
+												<a href="">ICSE'23</a>.
+											</li>
+										</ul></li>
+									<br>
+									
+									
+									<li><b>Program Analysis for Security and Privacy Weakness Detection</b>
+										<ul>
+											<li onclick="myOldFunction('')">Abstract: <u>click</u></li>
+											<div id="" class="oldcontent">
+											</div>
+											<li>Paper: accepted to <a href="">ICSE'20</a>, 
+												<a href="">OOPSLA'20</a>,
+												<a href="">ISSTA'21</a>.
+											</li>
+										</ul></li>
+									<br>
+									
+									<li><b>Trustworthy Compiler Toolchain: Validation and Verification</b>
+										<ul>
+											<li onclick="myOldFunction('')">Abstract: <u>click</u></li>
+											<div id="" class="oldcontent">
+											</div>
+											<li>Paper: accepted to <a href="https://dl.acm.org/doi/10.1109/ICSE.2019.00061">ICSE'19</a>, 
+												<a href="https://ieeexplore.ieee.org/document/8952463">ASE'19</a>.
+											</li>
+										</ul></li>
+									<br>
+									
+									
+									
+									<li><b>Scalable Statistical Debugging via Abstraction Refinement</b>
+										<ul>
+											<li onclick="myOldFunction('')">Abstract: <u>click</u></li>
+											<div id="" class="oldcontent">
+											</div>
+											<li>Paper: accepted to <a href="https://dl.acm.org/citation.cfm?id=2631833">ISSTA'14
+													DS</a>, <a href="https://dl.acm.org/citation.cfm?id=2610400">ISSTA'14</a>,
+												<a href="https://dl.acm.org/citation.cfm?id=2984005">OOPSLA'16</a>,
+												<a href="https://dl.acm.org/doi/10.1145/3544790">TOSEM'23</a>.
+											</li>
+										</ul></li>
+									<br>
+								</ul>
+								-->
+
+								<h3 style="color: darkblue">Tools</h3>
+								<ul type="disc">
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://github.com/BigDataflow-system">BigDataflow</a>: a distributed
+										interprocedural dataflow analysis framework running on the cloud
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://github.com/DStream-project">DStream</a>: a streaming-based
+										highly parallel IFDS framework
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://github.com/JPortal-system">JPortal</a>: a hardware-based
+										control-flow tracing system for JVM programs
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://github.com/Chianina-system">Chianina</a>: an evolving graph
+										system for scalable flow- and context-sensitive static analysis
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://github.com/Graspan/Graspan-G">GpuSpa</a>: a GPU-accelerated
+										out-of-core system for static program analysis
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://github.com/PasaLab/BigSpa">BigSpa</a>: a distributed
+										interprocedural static program analysis engine
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://github.com/grapple-system">Grapple</a>: a graph system for
+										finite-state property checking of large-scale systems code
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://github.com/rstream-system">RStream</a>: a single-machine,
+										disk-based graph mining system
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://github.com/Graspan/Graspan-C">Graspan</a>: a disk-based
+										parallel graph system for interprocedural static analysis
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://bitbucket.org/z_zhiqiang/jsampler">JSampler</a>: a sampled
+										predicate-based instrumentor for Java
+									</li>
+								</ul>
+
+
+								<h3 style="color: darkblue">Talks</h3>
+								<ul type="disc">
+									<li style="margin-bottom: 10px;"><strong>Live Program Analysis（实况程序分析）</strong> <br>
+										<i>2024 年全国软件分析与验证研讨会</i>, (SAVE'2024), 北京, 2024.11.30.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>针对eBPF程序的动态编译优化</strong> <br>
+										<i>2024 CCF全国嵌入式系统大会-端侧大模型软硬件系统技术与应用论坛</i>, 深圳, 2024.9.22.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Live Program Analysis（实况程序分析）</strong> <br>
+										<i>SIG-程序分析技术沙龙</i>, 南京, 2023.8.17.
+										[<a
+											href="https://www.bilibili.com/video/BV1S14y1y7ZV/?spm_id_from=333.999.0.0">中文视频</a>]
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>GPU程序反馈式编译优化研究</strong> <br>
+										<i>2023 CCF系统软件专委-编译器技术论坛</i>, 天津, 2023.7.16.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>面向大规模基础软件的程序分析技术</strong> <br>
+										<i>2022 CCF中国软件大会-基础软件质量保障论坛</i>, 线上, 2022.11.27.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>基于硬件的程序动态控制流追踪系统</strong> <br>
+										<i>2022 Huawei STW</i>, Shenzhen, 2022.9.26-9.28. <br>
+										<i>SIG-程序分析技术沙龙</i>, 线上, 2022.4.23.
+										[<a
+											href="https://www.bilibili.com/video/BV1TY411P7qC/?spm_id_from=333.788">中文视频</a>]
+										<br>
+										<i>南方科技大学</i>, 线上, 2022.4.7.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>一种支持硬件动态程序追踪的JVM设计与实现</strong> <br>
+										<i>2021 CCF中国软件大会-顶会顶刊论坛</i>, 线上, 2021.12.24.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>安全C语言设计与实现</strong> <br>
+										<i>CNCC 2021 中国计算机大会-安全程序设计语言论坛</i>, 线上, 2021.12.17.
+										<br>
+										<i>ZGC安全程序设计语言研讨会</i>, 线上, 2021.7.25.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Systemized Program
+											Analysis（系统化程序分析）</strong> <br>
+										<i>2022 网络安全技术论坛</i>, 华为西安研究所, 2022.9.19-9.20.
+										<br>
+										<i>清华大学</i>, 线上, 2022.3.11.
+										<br>
+										<i>CCF形式化方法专委战略研讨会：软硬件验证工具、研究进展与挑战</i>, 线上, 2021.10.24.
+										<br>
+										<i>2021 华为"ICT软件技术大会·AI与软件技术峰会"&"网络天下·软件技术论坛"</i>, 华为南京研究所, 2021.10.19.
+										<br>
+										<i>SIG-程序分析技术沙龙</i>, 线上, 2021.8.28.
+										[<a
+											href="https://www.bilibili.com/video/BV1NP4y1W7cF?spm_id_from=333.999.0.0">中文视频</a>]
+										<br>
+										<i>CCF系统软件技术论坛</i>, 南京, 2021.7.15.
+										<br>
+										<i>2020 夏培肃青年学者论坛</i>, 中国科学院计算技术研究所, 2020.9.3-9.4.
+										<br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>JPortal: Precise and Efficient Control-Flow
+											Tracing for JVM Programs with Intel Processor Trace</strong> <br>
+										At <i>the 42nd ACM SIGPLAN Conference on Programming Language Design and
+											Implementation</i>, (PLDI'21),
+										Virtual, June 20-25, 2021. <br></li>
+
+									<li style="margin-bottom: 10px;"><strong>Chianina: An Evolving Graph System for
+											Flow- and Context-Sensitive Analyses of Million Lines of C Code</strong>
+										<br>
+										At <i>the 42nd ACM SIGPLAN Conference on Programming Language Design and
+											Implementation</i>, (PLDI'21),
+										Virtual, June 20-25, 2021. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>安全语言增强集设计与实现</strong> <br>
+										<i>2020 网络安全技术论坛</i>, 华为松山湖研究所, 2020.9.10-9.11. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Systems Support for Program Analysis,
+											Profiling, and Synthesis </strong> <br>
+										At <i>Nanjing University</i>,
+										Nanjing, China, Dec. 9, 2019. <br></li>
+
+									<li style="margin-bottom: 10px;"><strong>Grapple: A Graph System for Static
+											Finite-State Property Checking of Large-Scale Systems Code </strong> <br>
+										At <i>the European Conference on Computer Systems</i>, (EuroSys'19),
+										Dresden, Germany, March 25-28, 2019. <br></li>
+
+									<li style="margin-bottom: 10px;"><strong>"Systemized" Program Analysis -- A "Big
+											Data" Perspective </strong> <br>
+										At <i>Tianjin University</i>,
+										Tianjin, China, Sep. 17, 2019. <br>
+										At <i>Griffith University</i>,
+										Brisbane, Australia, Jan. 18, 2019. <br>
+										At <i>University of Queensland</i>,
+										Brisbane, Australia, Jan. 15, 2019. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Systems Support for Sophisticated Program
+											Analysis </strong> <br>
+										<i>2018 年全国软件分析与验证研讨会</i>, (SAVE'2018), 杭州, 2018.5.26-5.27. <br>
+										<i>2018年江苏省计算机软件专委会学术年会</i>, 扬州, 2018.5.12-5.13. <br>
+										At <i>University of California, Los Angeles</i>, (UCLA),
+										LA, CA, USA, Jan. 26, 2018. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Towards Highly Scalable Static and Dynamic
+											Program Analysis </strong> <br>
+										At <i>Nanjing University</i>,
+										Nanjing, China, Sep. 21, 2017. <br>
+										At <i>Tianjin University</i>,
+										Tianjin, China, April 20, 2017. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>"Big Data Thinking" for Highly Scalable
+											Static Program Analyses </strong> <br>
+										At <i>Shanghai Jiao Tong University</i>,
+										Shanghai, China, May 4, 2017. <br>
+										At <i>Nanjing University</i>,
+										Nanjing, China, May 2, 2017. <br>
+									</li>
+
+									<li style="margin-bottom: 10px;"><strong>Low-Overhead and Fully Automated
+											Statistical Debugging with Abstraction Refinement </strong> <br>
+										At <i>the ACM SIGPLAN Conference on Object-Oriented Programming Systems,
+											Languages, and Applications</i>, (OOPSLA'16),
+										Amsterdam, The Netherlands, Oct. 30 - Nov. 4, 2016. <br></li>
+
+									<li style="margin-bottom: 10px;"><strong>Efficient Predicated Bug Signature Mining
+											via Hierarchical Instrumentation </strong> <br>
+										At <i>the 2014 International Symposium on Software Testing and Analysis</i>,
+										(ISSTA'14),
+										San Jose, CA, USA, July 21-25, 2014. <br></li>
+
+									<li style="margin-bottom: 10px;"><strong>Statistical Debugging via Hierarchical
+											Instrumentation </strong> <br>
+										At <i>the 2014 International Symposium on Software Testing and Analysis</i>,
+										(ISSTA'14 Doctoral Symposium),
+										San Jose, CA, USA, July 21-25, 2014. <br></li>
+
+									<li style="margin-bottom: 10px;"><strong>Mining Dataflow Sensitive Specifications
+										</strong> <br>
+										At <i>the 15th International Conference on Formal Engineering Methods</i>,
+										(ICFEM'13),
+										Queenstown, New Zealand, Oct. 29 - Nov. 1, 2013. <br></li>
+								</ul>
+
+
+							</div>
+
+							<!--==================================== Students ====================================-->
+							<div id="Students" class="tabcontent">
+								<p class="MsoNormal">
+									I'm co-advising many excellent students together with the faculty in the <a
+										href="http://seg.nju.edu.cn/index.action">Software Engineering Group</a>.
+								</p>
+
+								<h3 style="color: darkblue">Current Students</h3>
+								<ul type="disc">
+
+									<li style="margin-bottom: 5px;">Zewen Sun (PhD, starting Fall 2020)</li>
+									<li style="margin-bottom: 5px;">Xudong Sun (PhD, starting Fall 2021)</li>
+									<li style="margin-bottom: 5px;">Yunxiang Liu (PhD, starting Fall 2024)</li>
+									<li style="margin-bottom: 5px;">Daiyou Wu (PhD, starting Fall 2024)</li>
+
+
+									<br>
+									<li style="margin-bottom: 5px;">Tiany&#237; Liu (Master, starting Fall 2022)</li>
+									<li style="margin-bottom: 5px;">Peng Zhou (Master, starting Fall 2022)</li>
+									<li style="margin-bottom: 5px;">Yueyang Wang (Master, starting Fall 2022)</li>
+									<li style="margin-bottom: 5px;">Yi Li (Master, starting Fall 2022)</li>
+
+									<li style="margin-bottom: 5px;">Yanfeng Gao (Master, starting Fall 2023)</li>
+									<li style="margin-bottom: 5px;">Xuyun Cai (Master, starting Fall 2023)</li>
+
+									<li style="margin-bottom: 5px;">Xiaopeng Jiang (Master, starting Fall 2024)</li>
+									<li style="margin-bottom: 5px;">Guichuan Hu (Master, starting Fall 2024)</li>
+									<li style="margin-bottom: 5px;">Hang Dai (Master, starting Fall 2024)</li>
+									<li style="margin-bottom: 5px;">Kaiyu Wang (Master, starting Fall 2024)</li>
+									<li style="margin-bottom: 5px;">Jingyang Shi (Master, starting Fall 2024)</li>
+									<li style="margin-bottom: 5px;">Kangxu Wei (Master, starting Fall 2024)</li>
+									<li style="margin-bottom: 5px;">Xinjie Deng (Master, starting Fall 2024)</li>
+									<br>
+
+
+								</ul>
+
+
+								<h3 style="color: darkblue">Graduated Students</h3>
+								<ul type="disc">
+
+									<li style="margin-bottom: 5px;"><a href="https://zyy0721.github.io/">Yiyu Zhang</a>
+										(PhD, 2024)</li>
+									<br>
+									<li style="margin-bottom: 5px;">Siyu Liu (Master, 2024)</li>
+									<li style="margin-bottom: 5px;">Tiany&#236; Liu (Master, 2024)</li>
+									<li style="margin-bottom: 5px;">Kai Ji (Master, 2023)</li>
+									<li style="margin-bottom: 5px;">Wei Tao (Master, 2023)</li>
+									<li style="margin-bottom: 5px;">Yuhui Deng (Master, 2023)</li>
+									<li style="margin-bottom: 5px;">Yun Qi (Master, 2023)</li>
+									<li style="margin-bottom: 5px;">Guihang Wang (Master, 2022)</li>
+									<li style="margin-bottom: 5px;">Duanchen Xu (Master, 2022)</li>
+									<li style="margin-bottom: 5px;">Siyuan He (Master, 2022)</li>
+									<li style="margin-bottom: 5px;">Xinyue Zhang (Master, 2022)</li>
+									<li style="margin-bottom: 5px;">Yifei Wang (Master, 2021)</li>
+									<li style="margin-bottom: 5px;">Shenming Lu (Master, 2020)</li>
+									<li style="margin-bottom: 5px;">Qiuhong Pan (Master, 2020)</li>
+									<li style="margin-bottom: 5px;">Lu Lu (Master, 2020)</li>
+
+
+
+									<br>
+									<li style="margin-bottom: 5px;">Lanlan Zhang (Bachelor, 2021)</li>
+									<li style="margin-bottom: 5px;">Tianyi Liu (Bachelor, 2021)</li>
+									<li style="margin-bottom: 5px;">Xudong Sun (Bachelor, 2021)</li>
+									<li style="margin-bottom: 5px;">Yichen Wang (Bachelor, 2020)</li>
+									<li style="margin-bottom: 5px;">Chuang Pan (Bachelor, 2019)</li>
+									<li style="margin-bottom: 5px;">Jin Shi (Bachelor, 2019)</li>
+									<li style="margin-bottom: 5px;">Xiutian Yang (Bachelor, 2019)</li>
+
+								</ul>
+							</div>
+
+							<!--==================================== Services ====================================-->
+							<div id="Services" class="tabcontent">
+								<h3 style="color: darkblue">Conference Committee</h3>
+								<ul type="disc">
+									<li style="margin-bottom: 5px;">ASPLOS'26 PC</li>
+									<li style="margin-bottom: 5px;">PLDI'25 PC</li>
+									<li style="margin-bottom: 5px;">ICSE'25 Workshop PC</li>
+									<li style="margin-bottom: 5px;">FSE'25 PC</li>
+									<li style="margin-bottom: 5px;">OOPSLA'24 RC</li>
+									<li style="margin-bottom: 5px;">ICSE'24 SRC PC</li>
+									<li style="margin-bottom: 5px;">PLDI'24 PC</li>
+									<li style="margin-bottom: 5px;">CC'24 PC</li>
+									<li style="margin-bottom: 5px;">FSE'24 PC</li>
+									<li style="margin-bottom: 5px;">ASE'23 PC</li>
+									<li style="margin-bottom: 5px;">ChinaSys'23 PC</li>
+									<li style="margin-bottom: 5px;">ChinaSoft'23 PC</li>
+									<li style="margin-bottom: 5px;">Internetware'23 PC</li>
+									<li style="margin-bottom: 5px;">ICSE'23 SRC PC</li>
+									<li style="margin-bottom: 5px;">ChinaSys'22 PC</li>
+									<li style="margin-bottom: 5px;">ChinaSoft'22 PC</li>
+									<li style="margin-bottom: 5px;">Internetware'22 PC</li>
+									<li style="margin-bottom: 5px;">APSys'22 PC</li>
+									<li style="margin-bottom: 5px;">ESEC/FSE'22 PC</li>
+									<li style="margin-bottom: 5px;">ASPLOS'22 ERC</li>
+									<li style="margin-bottom: 5px;">PLDI'22 PC</li>
+									<li style="margin-bottom: 5px;">ISEC'21 PC</li>
+									<li style="margin-bottom: 5px;">ASPLOS'20 ERC</li>
+									<li style="margin-bottom: 5px;">Internetware'20 PC</li>
+									<li style="margin-bottom: 5px;">ISEC'20 PC</li>
+									<li style="margin-bottom: 5px;">OOPSLA'18 AEC</li>
+								</ul>
+
+								<h3 style="color: darkblue">Journal Reviewer</h3>
+								<ul type="disc">
+									<li style="margin-bottom: 5px;">ACM TOSEM</li>
+									<li style="margin-bottom: 5px;">IEEE TSE</li>
+									<li style="margin-bottom: 5px;">JCST</li>
+									<li style="margin-bottom: 5px;">JOC</li>
+									<li style="margin-bottom: 5px;">JOS</li>
+								</ul>
+
+								<h3 style="color: darkblue">Journal (Guest) Editor</h3>
+								<ul type="disc">
+									<li style="margin-bottom: 5px;">2024 JOS special issue on Compilation Technology and
+										Compiler Design</li>
+								</ul>
+
+								<!--
+								<h3 style="color: darkblue">Conference Reviewer</h3>
+								<ul type="disc">
+									<li style="margin-bottom: 5px;">2020: PLDI</li>
+									<li style="margin-bottom: 5px;">2019: ICFEM, MEMOCODE</li>
+									<li style="margin-bottom: 5px;">2017: ASPLOS, ENASE, ISCA-AGP</li>
+									<li style="margin-bottom: 5px;">2016: ECOOP, ISMM, FSE-SRC</li>
+									<li style="margin-bottom: 5px;">2015: ISSTA</li>
+								</ul>
+								-->
+							</div>
+
+							<!--==================================== Teaching ====================================-->
+							<div id="Teaching" class="tabcontent">
+								<!-- <h3 style="color: darkblue">Instructor</h3> -->
+								<h3 style="color: darkblue">Lecturer</h3>
+								<ul type="disc">
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 2, 2024/2025
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 1, 2024/2025
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 2, 2023/2024
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 1, 2023/2024
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 2, 2022/2023
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 1, 2022/2023
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 2, 2021/2022
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 1, 2021/2022
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 2, 2020/2021
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 1, 2020/2021
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 1, 2019/2020
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22000010:<strong><em>
+												Basics of Programming </em></strong> in Semester 2, 2018/2019
+									</li>
+									<li style="margin-bottom: 5px;">NJU 22010100:<strong><em>
+												Advanced Programming </em></strong> in Semester 1, 2018/2019
+									</li>
+								</ul>
+								<h3 style="color: darkblue">Teaching Assistant</h3>
+								<ul type="disc">
+									<li style="margin-bottom: 5px;">NUS CS5218:<strong><em>
+												Principles of Program Analysis </em></strong> in Semester 2, 2012/2013
+									</li>
+
+									<li style="margin-bottom: 5px;">NUS CS5218:<strong><em>
+												Principles of Program Analysis </em></strong> in Semester 2, 2013/2014
+									</li>
+								</ul>
+							</div>
+
+
+
+							<!--==================================== Calendar ====================================-->
+							<div id="Calendar" class="tabcontent">
+								<iframe
+									src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=1bvodm61rier161lo48etdm7g4%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=Asia%2FShanghai"
+									style="border-width:0" width="800" height="600" frameborder="0"
+									scrolling="no"></iframe>
+							</div>
+
+							<!--==================================== Miscellaneous ====================================-->
+							<div id="Miscellaneous" class="tabcontent">
+								<h3 style="color: darkblue">Special Links</h3>
+								<ul type="disc">
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://ccfddl.github.io/"> CCF Conference Deadlines</a>
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/">
+											CCF Conference and Journal Rankings</a>
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="https://www.ccf.org.cn/c/2019-07-31/667609.shtml">
+											CCF Chinese Journal Rankings</a>
+									</li>
+									<li class="MsoNormal"
+										style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l3 level1 lfo6; tab-stops: list .5in">
+										<a href="http://csrankings.org/">
+											Computer Science Rankings (CSRankings)</a>
+									</li>
+								</ul>
+							</div>
+
+
+
+							<span style="display: block; height: 40pt;"></span>
+							<table class="MsoNormalTable" border="0" cellpadding="0" width="100%"
+								style="width: 100.0%; mso-cellspacing: 1.5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt">
+								<tbody>
+									<tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; mso-yfti-lastrow: yes">
+										<td width="23%" style="width: 23.54%; padding: .75pt .75pt .75pt .75pt">
+										</td>
+										<td width="53%" style="width: 53.54%; padding: .75pt .75pt .75pt .75pt">
+											<div class="footer">
+												<center>
+													<font color="black" size='2'>
+														Copyright &copy 2025 Jingyang Shi
+														<br> All rights reserved
+														<!-- Last update: October, 2017 -->
+													</font>
+													<p class="MsoNormal">
+														<i>
+															<font color="black">"Simplicity is the ultimate
+																sophistication." -- Leonardo da Vinci </font>
+														</i>
+													</p>
+												</center>
+											</div> <!--end of footer-->
+
+										</td>
+
+
+										<td width="23%" style="width: 23.74%; padding: .75pt .75pt .75pt .75pt"
+											align="right">
+											<div id="clustrmaps-widget"></div>
+											<a href="https://clustrmaps.com/site/1c5dd"
+												title="Visit tracker ClustrMaps"><img
+													src="//www.clustrmaps.com/map_v2.png?d=-ha6F4QSE5ZYv8NCiYb3Cmgdb2w6U3bvuR5ERicsk3U&cl=ffffff"></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p class="MsoNormal">
+				<span style="color: windowtext">
+					<o:p>&nbsp;</o:p>
+				</span>
+			</p>
+
+		</div>
+	</div>
+
+	<script>
+		function openCity(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(
+					" active", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>
+
+	<script>
+		function myOldFunction(projectName) {
+			var x = document.getElementById(projectName);
+			if (x.style.display === "block") {
+				x.style.display = "none";
+			} else {
+				x.style.display = "block";
+			}
+		}
+
+		function myNewFunction(projectName) {
+			var x = document.getElementById(projectName);
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
+	</script>
+
 </body>
 
 </html>
